@@ -1,6 +1,7 @@
 let r = 150;
 let density;
 let densitySlider;
+let displayDensity
 
 let thetaMax, phiMax;
 let thetaMaxSlider, phiMaxSlider;
@@ -8,7 +9,7 @@ let frequencySlider, frequencySlider2;
 let frequency, frequency2;
 
 function setup() {
-  canvas = createCanvas(600, 600, WEBGL);
+  canvas = createCanvas(500, 500, WEBGL);
   canvas.parent("container");
   angleMode(DEGREES);
   colorMode(HSB);
@@ -33,7 +34,7 @@ function setup() {
 
   density = createDiv();
   density.parent("container");
-  densitySlider = createSlider(0.1, 1, 0.2, 0.1);
+  densitySlider = createSlider(0.1, 3, 0.2, 0.1);
   densitySlider.parent("container");
   density.class("valueDisplay");
   densitySlider.class("Slider");
@@ -65,14 +66,14 @@ function draw() {
   thetaMax.html("Theta max value: " + thetaMaxSlider.value());
   phiMax.html("Phi max value: " + phiMaxSlider.value());
 
-  let displayDensity = int(map(densitySlider.value(), 3, 62, 1, 60));
-  density.html("Density value: " + displayDensity);
+  // displayDensity = int(map(densitySlider.value(), 3, 62, 1, 60));
+  density.html("Density value: " + densitySlider.value());
 
   frequency.html("Frequency: " + frequencySlider.value());
   frequency2.html("Frequency2: " + frequencySlider2.value());
 }
 function windowResized() {
-  resizeCanvas(600, 600);
+  resizeCanvas(500, 500);
 }
 
 
